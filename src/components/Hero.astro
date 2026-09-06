@@ -1,0 +1,89 @@
+<main class="hero">
+
+    <div class="hero-background"></div>
+
+    <div class="hero-content">
+        
+        <p class="description">
+            Entre florestas antigas, cidades esquecidas e histórias
+            que ainda precisam ser contadas.
+        </p>
+
+        <a class="button" href="#">
+            Entrar neste mundo
+        </a>
+    </div>
+</main>
+
+<style>
+    .hero {
+		min-height: 75vh;
+
+		display: flex;
+		align-items: center;
+
+		padding: 8rem 10%;
+
+		position: relative;
+		overflow: hidden;
+
+		background:
+        linear-gradient(
+            90deg,
+            #0b1510 0%,
+            #0b1510cc 45%,
+            #0b151000 100%
+        );
+	}
+
+	.hero-background {
+		position: absolute;
+
+		inset: 0;
+
+		background: url("/images/personagens.png");
+
+		background-size: cover;
+		background-position: center;
+
+		z-index: 0;
+	}
+
+	.hero-background::after {
+		content: "";
+
+		position: absolute;
+		inset: 0;
+
+		background: rgba(11, 21, 16, 0.35);
+	}
+
+    .hero-content {
+        max-width: 1000px;
+		z-index: 1;
+    }
+
+    .description {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: #c9c2b7;
+    }
+
+    .button {
+        display: inline-block;
+
+        margin-top: 2rem;
+        padding: 1rem 1.5rem;
+
+        border: 1px solid #c66a3d;
+
+        color: #e8e1d5;
+        text-decoration: none;
+    }
+
+    @media (max-width: 800px) {
+        .hero {
+			padding: 6rem 1.5rem;
+		}
+    }
+</style>

@@ -1,0 +1,53 @@
+<header class="topbar">
+    <div class="logo">AS LENDAS DE AETHRA</div>
+
+    <nav>
+        <a href="#">O Livro</a>
+        <a href="#">Universo</a>
+        <a href="#">Personagens</a>
+        <a href="#">Sobre</a>
+    </nav>
+</header>
+
+<style>
+    .topbar {
+        position: absolute; /*não ocupa espaço*/
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 2rem 4rem;
+
+        z-index: 10;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        letter-spacing: 0.15em;
+    }
+
+    nav {
+        display: flex;
+        gap: 2rem;
+    }
+
+    nav a {
+        color: #e8e1d5;
+        text-decoration: none;
+    }
+
+    @media (max-width: 800px) {
+		.topbar {
+			padding: 1.5rem;
+		}
+
+		nav {
+			display: none;
+		}
+	}
+
+</style>

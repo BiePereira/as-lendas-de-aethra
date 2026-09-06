@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #0b1510;
+    color: #e8e1d5;
+    font-family: Georgia, serif;
+}
