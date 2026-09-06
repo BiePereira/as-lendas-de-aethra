@@ -1,0 +1,174 @@
+<section class="characters">
+    <div class="characters-content">
+        <p class="eyebrow">PERSONAGENS</p>
+
+        <h2>Aqueles que habitam Aethra</h2>
+
+        <div class="divider"></div>
+
+        <p>
+            Heróis, aliados, inimigos e figuras que carregam
+            suas próprias histórias.
+        </p>
+    </div>
+
+    <div class="character-cards">
+
+        <article class="character-card">
+            <div class="character-image">
+                <img src="/images/kaelis.png" alt="Kaelis">
+            </div>
+            <div class="character-info">
+                <h3>Kaelis</h3>
+                <p>
+                    A druidesa de Becanlar.
+                </p>
+                <a href="#">
+                    Conhecer personagem
+                </a>
+            </div>
+        </article>
+
+        <article class="character-card">
+            <div class="character-image">
+                <img src="/images/garen.jpg" alt="Garen">
+            </div>
+            <h3>Garen</h3>
+            <p>O guardião de Vau dos Gansos.</p>
+            <a href="#">
+                Conhecer personagem
+            </a>
+        </article>
+
+        <article class="character-card">
+            <div class="character-image">
+                <img src="/images/riel.png" alt="Riel">
+            </div>
+            <h3>Riel</h3>
+            <p>O trapaceiro de Vardis.</p>
+            <a href="#">
+                Conhecer personagem
+            </a>
+        </article>
+    </div>
+</section>
+
+<style>
+    .characters {
+        padding: 8rem 10%;
+        background: #101c15;
+    }
+
+    .characters-content {
+        max-width: 700px;
+        margin: 0 auto 4rem;
+        text-align: center;
+    }
+
+    .characters h2 {
+        font-size: 3.5rem;
+        margin: 0.5rem 0 1rem;
+    }
+
+    .characters-content > p:last-child {
+        color: #c9c2b7;
+        line-height: 1.8;
+    }
+
+    .divider {
+        width: 80px;
+        height: 1px;
+        margin: 2rem auto;
+        background: #c66a3d;
+    }
+
+    .character-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .character-card {
+        padding: 2rem;
+        background: #14251b;
+        border: 1px solid #284535;
+        overflow: hidden;
+        
+        transition:
+        transform 0.3s ease,
+            border-color 0.3s ease;
+    }
+
+    .character-card:hover {
+        transform: translateY(-8px);
+        border-color: #c66a3d;
+    }
+
+    .character-image {
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        background: #26352a;
+    }
+
+    .character-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+
+        transition: transform 0.5s ease;
+    }
+
+    .character-card:hover .character-image img {
+        transform: scale(1.05);
+    }
+
+    .character-info {
+        padding: 2rem;
+    }
+
+    .character-card h3 {
+        margin: 0 0 1rem;
+        font-size: 1.8rem;
+    }
+
+    .character-card p {
+        margin: 0;
+        color: #c9c2b7;
+        line-height: 1.7;
+    }
+
+    .character-card a {
+        display: inline-block;
+        margin-top: 1.5rem;
+
+        color: #d89a4a;
+        text-decoration: none;
+
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+    }
+
+    @media (max-width: 800px) {
+        .characters {
+            padding: 5rem 1.5rem;
+        }
+
+        .characters h2 {
+            font-size: 2.5rem;
+        }
+
+        .character-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .character-image {
+            aspect-ratio: 4 / 3;
+        }
+
+        .character-info {
+            padding: 1.5rem;
+        }
+    }
+</style>

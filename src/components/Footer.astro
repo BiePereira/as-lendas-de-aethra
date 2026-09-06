@@ -1,0 +1,121 @@
+<footer class="footer">
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <p class="footer-title">AS LENDAS DE AETHRA</p>
+
+            <p class="footer-description">
+                Histórias de um mundo antigo, onde mistérios do mundo ainda
+                criam lendas entre aqueles que vivem para contá-las.
+            </p>
+        </div>
+
+        <nav class="footer-nav">
+            <a href="#">O Livro</a>
+            <a href="#">Universo</a>
+            <a href="#">Personagens</a>
+            <a href="#">Sobre</a>
+        </nav>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>Gabriel Menezes Pereira</p>
+        <p>© 2026 As Lendas de Aethra. © 2026 A Emissária Mudante. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        padding: 2rem 10% 1rem;
+
+        background: #08100b;
+        border-top: 1px solid #284535;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+
+         gap: 4rem;
+
+        padding-bottom: 1.5rem;
+    }
+
+    .footer-brand {
+        max-width: 500px;
+    }
+
+    .footer-title {
+        margin: 0 0 1rem;
+
+        font-size: 1.2rem;
+        letter-spacing: 0.12em;
+
+        color: #d89a4a;
+    }
+
+    .footer-description {
+        margin: 0;
+
+        color: #9f9a90;
+        line-height: 1.6;
+    }
+
+    .footer-nav {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .footer-nav a {
+        color: #c9c2b7;
+
+        text-decoration: none;
+        font-size: 0.9rem;
+
+        transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+        color: #d89a4a;
+    }
+
+    .footer-bottom {
+        padding-top: 1.5rem;
+
+        border-top: 1px solid #284535;
+    }
+
+    .footer-bottom p {
+        margin: 0;
+
+        color: #6f756d;
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 800px) {
+        .footer {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-brand{
+            max-width: none;
+        }
+
+        .footer-nav {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+        }
+    }
+</style>
