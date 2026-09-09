@@ -77,12 +77,33 @@ import imagemCapa from "../assets/images/capa-livro.png";
 		justify-content: center;
 
 		background: #26352a;
-
-		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-
+		box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
 		overflow: hidden;
-
         width: min(100%, 380px);
+
+		border: 2px solid rgba(216, 154, 74, 0.25);
+		transform: rotate(1deg);
+
+		position: relative;
+	}
+
+	/*efeitos de páginas ao lado da capa, como se fosse um livro*/
+	.book-cover::after {
+		content: "";
+		position: absolute;
+		top: 2px;
+		right: 0;
+		width: 5px;
+		height: calc(100% - 4px);
+
+		background: linear-gradient(
+			to right,
+			#b8b0a1,
+			#e0d8c8,
+			#a9a294
+		);
+
+		opacity: 0.9;
 	}
 
 	.book-cover img {

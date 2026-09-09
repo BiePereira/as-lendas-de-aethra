@@ -7,7 +7,7 @@ import capaPersonagens from "../assets/images/personagens.png";
     <div class="hero-background"></div>
 
     <div class="hero-content">
-        
+        <h1>A Emissária Mudante</h1>
         <p class="description">
             Entre florestas antigas, cidades esquecidas e histórias
             que ainda precisam ser contadas.
@@ -23,7 +23,7 @@ import capaPersonagens from "../assets/images/personagens.png";
     define:vars={{ capaPersonagens: `url(${capaPersonagens.src})`}}
 >
     .hero {
-		min-height: 75vh;
+		min-height: 90vh;
 
 		display: flex;
 		align-items: center;
@@ -50,7 +50,7 @@ import capaPersonagens from "../assets/images/personagens.png";
 		background-image: var(--capaPersonagens);
 
 		background-size: cover;
-		background-position: center;
+		background-position: center 30%;
 
 		z-index: 0;
 	}
@@ -61,17 +61,32 @@ import capaPersonagens from "../assets/images/personagens.png";
 		position: absolute;
 		inset: 0;
 
-		background: rgba(11, 21, 16, 0.35);
+		background:
+            linear-gradient(
+                to bottom,
+                rgba(11, 21, 16, 0) 60%,
+                #0b1510 100%
+            )
+            rgba(11, 21, 16, 0.35);
 	}
 
     .hero-content {
         max-width: 1000px;
 		z-index: 1;
+        transform: translateY(80px); /*Baixa os conteúdos para não ficarem na cara da personagem */
+    }
+
+    .hero h1{
+        margin: 0;
+        line-height: 1;
+        font-weight: 400;
+        font-size: clamp(3rem, 5vw, 5rem); /* clamp para o tamanho crescer dentro dos limites */
     }
 
     .description {
+        min-width: 1.15rem;
         font-size: 1.2rem;
-        line-height: 1.7;
+        line-height: 1.8;
         color: #c9c2b7;
     }
 

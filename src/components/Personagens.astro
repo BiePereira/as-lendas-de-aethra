@@ -21,7 +21,7 @@ import imagemRiel from "../assets/images/riel.png";
     <div class="character-cards">
 
         <article class="character-card">
-            <div class="character-image">
+            <div class="character-image kaelis-image">
                 <img src={imagemKaelis.src} alt="Kaelis">
             </div>
             <div class="character-info">
@@ -123,6 +123,11 @@ import imagemRiel from "../assets/images/riel.png";
         display: block;
 
         transition: transform 0.5s ease;
+    }
+
+    /*correção para Kaelis centralizar na sua própria imagem*/
+    .kaelis-image img{
+        object-position: center 20%;
     }
 
     .character-card:hover .character-image img {
