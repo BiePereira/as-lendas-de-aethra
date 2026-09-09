@@ -1,3 +1,7 @@
+---
+import capaPersonagens from "../assets/images/personagens.png";
+---
+
 <main class="hero">
 
     <div class="hero-background"></div>
@@ -15,7 +19,9 @@
     </div>
 </main>
 
-<style>
+<style
+    define:vars={{ capaPersonagens: `url(${capaPersonagens.src})`}}
+>
     .hero {
 		min-height: 75vh;
 
@@ -41,7 +47,7 @@
 
 		inset: 0;
 
-		background: url("/images/personagens.png");
+		background-image: var(--capaPersonagens);
 
 		background-size: cover;
 		background-position: center;
