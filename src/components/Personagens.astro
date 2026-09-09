@@ -2,9 +2,27 @@
 import imagemKaelis from "../assets/images/kaelis.png";
 import imagemGaren from "../assets/images/garen.jpg";
 import imagemRiel from "../assets/images/riel.png";
+
+const personagens = [
+    {
+        nome: "Kaelis",
+        descricao: "A druidesa de Becanlar.",
+        imagem: imagemKaelis.src
+    },
+    {
+        nome: "Garen",
+        descricao: "O guardião de Vau dos Gansos.",
+        imagem: imagemGaren.src
+    },
+    {
+        nome: "Riel",
+        descricao: "O ladino de Vardis.",
+        imagem: imagemRiel.src
+    },
+];
 ---
 
-<section class="characters">
+<section id="personagens" class="characters">
     <div class="characters-content">
         <p class="eyebrow">PERSONAGENS</p>
 
@@ -19,44 +37,20 @@ import imagemRiel from "../assets/images/riel.png";
     </div>
 
     <div class="character-cards">
-
-        <article class="character-card">
-            <div class="character-image kaelis-image">
-                <img src={imagemKaelis.src} alt="Kaelis">
-            </div>
-            <div class="character-info">
-                <h3>Kaelis</h3>
-                <p>
-                    A druidesa de Becanlar.
-                </p>
-                <a href="#">
-                    Conhecer personagem
-                </a>
-            </div>
-        </article>
-
-        <article class="character-card">
-            <div class="character-image">
-                <img src={imagemGaren.src} alt="Garen">
-            </div>
-            <h3>Garen</h3>
-            <p>O guardião de Vau dos Gansos.</p>
-            <a href="#">
-                Conhecer personagem
-            </a>
-        </article>
-
-        <article class="character-card">
-            <div class="character-image">
-                <img src={imagemRiel.src} alt="Riel">
-            </div>
-            <h3>Riel</h3>
-            <p>O trapaceiro de Vardis.</p>
-            <a href="#">
-                Conhecer personagem
-            </a>
-        </article>
+        {personagens.map((personagem) => (
+            <article class="character-card">
+                <div class="character-image">
+                    <img src={personagem.imagem} alt={personagem.nome}>
+                </div>
+                <div class="character-info">
+                    <h3>{personagem.nome}</h3>
+                    <p>{personagem.descricao}</p>
+                    <a href="#">Conhecer Personagem</a>
+                </div>
+            </article>
+        ))}
     </div>
+
 </section>
 
 <style>
@@ -123,11 +117,6 @@ import imagemRiel from "../assets/images/riel.png";
         display: block;
 
         transition: transform 0.5s ease;
-    }
-
-    /*correção para Kaelis centralizar na sua própria imagem*/
-    .kaelis-image img{
-        object-position: center 20%;
     }
 
     .character-card:hover .character-image img {

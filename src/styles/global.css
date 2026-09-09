@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+/*avança até a seção correta de maneira suave*/
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background: #0b1510;
