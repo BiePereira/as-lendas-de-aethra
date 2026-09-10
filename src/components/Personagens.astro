@@ -1,25 +1,6 @@
 ---
-import imagemKaelis from "../assets/images/kaelis.png";
-import imagemGaren from "../assets/images/garen.jpg";
-import imagemRiel from "../assets/images/riel.png";
-
-const personagens = [
-    {
-        nome: "Kaelis",
-        descricao: "A druidesa de Becanlar.",
-        imagem: imagemKaelis.src
-    },
-    {
-        nome: "Garen",
-        descricao: "O guardião de Vau dos Gansos.",
-        imagem: imagemGaren.src
-    },
-    {
-        nome: "Riel",
-        descricao: "O ladino de Vardis.",
-        imagem: imagemRiel.src
-    },
-];
+import {personagens} from "../data/personagens.js";
+import {getPath} from "../utils/paths.js";
 ---
 
 <section id="personagens" class="characters">
@@ -40,12 +21,12 @@ const personagens = [
         {personagens.map((personagem) => (
             <article class="character-card">
                 <div class="character-image">
-                    <img src={personagem.imagem} alt={personagem.nome}>
+                    <img src={personagem.imagemCard} alt={personagem.nome}>
                 </div>
                 <div class="character-info">
                     <h3>{personagem.nome}</h3>
                     <p>{personagem.descricao}</p>
-                    <a href="#">Conhecer Personagem</a>
+                    <a href={getPath(personagem.link)}>Conhecer Personagem</a>
                 </div>
             </article>
         ))}
