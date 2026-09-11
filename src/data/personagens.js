@@ -14,7 +14,7 @@ export const kaelis = {
     frase: "Pelo menos eu tenho motivo para ter minhas orelhas assim. Pior é você com essas bolotinhas achatadas por aí. Tem certeza que sua mãe não te trouxe de Rook arrastado por um pé?",
     raca: "Meio-elfa",
     origem: "Becanlar",
-    descricao: "A menina sarcástica meio-elfa de Becanlar",
+    descricao: "A druidesa de Becanlar",
     historia: "",
     idade: "16 anos"
 }

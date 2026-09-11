@@ -1,3 +1,8 @@
+---
+import imagemMundo from "../assets/images/tarisia.png";
+import imagemPergaminho from "../assets/images/pergaminho.png";
+---
+
 <section id="universo" class="universe">
     <div class="universe-content">
         <p class="eyebrow">O UNIVERSO</p>
@@ -12,34 +17,42 @@
         </p>
     </div>
 
-    <div class="universe-cards">
-        <article class="universe-card">
+    <div class="universe-entries">
+        <article class="universe-entry">
             <h3>O Mundo</h3>
             <p>
-                Continentes, cidades e territórios onde diferentes povos
+                O continente flutuante de Tarísia onde diferentes povos
                 constroem suas próprias histórias.
             </p>
+            <div class="universe-image">
+                <img src={imagemMundo.src} alt="Representação do continente de Tarísia" />
+            </div>
         </article>
-
-        <article class="universe-card">
-            <h3>As Regiões</h3>
-            <p>
-                Fronteiras demarcadas e disputadas fazem a separação de
-                florestas proibidas, desertos selvagens, impérios e países.
-            </p>
-        </article>
-
-        <article class="universe-card">
+        <article class="universe-entry">
             <h3>A História</h3>
             <p>
                 Há coisas em Aethra que talvez nunca tenham sido
                 completamente compreendidas. 
             </p>
         </article>
+
+        <article class="universe-entry regions">
+            <h3>As Regiões</h3>
+            <div class="parchment">
+                <p class="parchment-text">
+                    Fronteiras demarcadas e disputadas fazem a separação de
+                    florestas proibidas, desertos selvagens, impérios e países
+                    que lutam por sua liberdade.
+                </p>
+            </div>
+        </article>
+
     </div>
 </section>
 
-<style>
+<style
+    define:vars={{ imagemPergaminho: `url(${imagemPergaminho.src})`}}
+>
     .universe {
         padding: 8rem 10%;
         background: #0b1510;
@@ -62,64 +75,86 @@
         line-height: 1.8;
     }
 
-    .universe-cards {
+    .universe-entries {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 3rem 4rem;
     }
 
-    .universe-card {
-        padding: 2rem;
-        background: #14251b;
-        border: 1px solid #284535;
-
+    .universe-entry {
         position: relative;
-        transition:
-            transform 0.3s ease,
-            border-color 0.3s ease;
     }
 
-    .universe-card:hover {
-        transform: translateY(-6px);
-        border-color: #c66a3d;
+    .universe-image {
+        width: 85%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: 50%;
+        mask-image: radial-gradient(
+            circle,
+            black 75%,
+            transparent 100%
+        );
+
+        -webkit-mask-image: radial-gradient(
+            circle,
+            black 100%,
+            transparent 100%
+        );
     }
 
-    .universe-card::before {
-        content:"";
-        position: absolute;
-
-        left: 0;
-        top: 0;
-
-        width: 2px;
+    .universe-image img {
+        width: 100%;
         height: 100%;
-
-        background: #d89a4a;
+        object-fit: cover;
+         /* zoom da imagem, sem alterar o círculo */
+        transform: scale(1.15) translateY(3%);
     }
 
-    .universe-card::after{
-        content:"";
-
-        position: absolute;
-        left: 0;
-        bottom: 0;
-
-        width: 28px;
-        height: 28px;
-
-        background: #d89a4a;
-        clip-path: polygon(0 0, 100% 100%, 0 100%);
+    .regions {
+        position: relative;
     }
 
-    .universe-card h3 {
+    .parchment {
+        background-image: var(--imagemPergaminho);
+        padding: 4rem 3rem;
+        min-height: 300px;
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .universe-entry:nth-child(1) {
+        grid-row: 1 / 3;
+    }
+
+    .universe-entry:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .universe-entry:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .universe-entry h3 {
         margin-top: 0;
 
         font-size: 1.5rem;
     }
 
-    .universe-card p {
+    .universe-entry p {
         color: #c9c2b7;
         line-height: 1.7;
+    }
+
+     .universe-entry .parchment-text {
+        color: #000;
+        line-height: 1.3;
+        max-width: 60%;
+        margin: 0 auto;
     }
 
     @media (max-width: 800px) {
@@ -131,7 +166,7 @@
             font-size: 2.5rem;
         }
 
-        .universe-cards {
+        .universe-entries {
             grid-template-columns: 1fr;
         }
     }
