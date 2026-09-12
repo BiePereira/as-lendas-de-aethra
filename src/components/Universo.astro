@@ -1,92 +1,50 @@
 ---
 import imagemMundo from "../assets/images/tarisia.png";
-import imagemPergaminho from "../assets/images/pergaminho.png";
+import mapaPergaminho from "../assets/images/mapa-desenhado.png";
+import imagemBiblioteca from "../assets/images/biblioteca.png";
 ---
-
 <section id="universo" class="universe">
-    <div class="universe-content">
-        <p class="eyebrow">O UNIVERSO</p>
+    <div class="universe-scene">
+       
+        <img
+            src={imagemBiblioteca.src}
+            alt=""
+            class="scene-background"
+        />
+        
+        <a class="world-link" href="mundo">
+            <img src={imagemMundo.src} alt="O mundo">
+        </a>
 
-        <h2>Um mundo ainda por descobrir</h2>
-
-        <div class="divider"></div>
-
-        <p>
-            Aethra é um mundo de histórias antigas, segredos esquecidos
-            e personagens que carregam seus próprios mistérios.
-        </p>
-    </div>
-
-    <div class="universe-entries">
-        <article class="universe-entry">
-            <h3>O Mundo</h3>
-            <p>
-                O continente flutuante de Tarísia onde diferentes povos
-                constroem suas próprias histórias.
-            </p>
-            <div class="universe-image">
-                <img src={imagemMundo.src} alt="Representação do continente de Tarísia" />
-            </div>
-        </article>
-        <article class="universe-entry">
-            <h3>A História</h3>
-            <p>
-                Há coisas em Aethra que talvez nunca tenham sido
-                completamente compreendidas. 
-            </p>
-        </article>
-
-        <article class="universe-entry regions">
-            <h3>As Regiões</h3>
-            <div class="parchment">
-                <p class="parchment-text">
-                    Fronteiras demarcadas e disputadas fazem a separação de
-                    florestas proibidas, desertos selvagens, impérios e países
-                    que lutam por sua liberdade.
-                </p>
-            </div>
-        </article>
-
+        <a class="map-link" href="regioes">
+            <img src={mapaPergaminho.src} alt="As regiões">
+            <span>Regiões de Tarísia</span>
+        </a>
     </div>
 </section>
 
-<style
-    define:vars={{ imagemPergaminho: `url(${imagemPergaminho.src})`}}
->
-    .universe {
-        padding: 8rem 10%;
-        background: #0b1510;
-    }
-
-    .universe-content {
-        max-width: 700px;
-        margin: 0 auto 4rem;
-
-        text-align: center;
-    }
-
-    .universe h2 {
-        font-size: 3.5rem;
-        margin: 0.5rem 0 1rem;
-    }
-
-    .universe-content > p:last-child {
-        color: #c9c2b7;
-        line-height: 1.8;
-    }
-
-    .universe-entries {
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 3rem 4rem;
-    }
-
-    .universe-entry {
+<style>
+    .universe-scene {
         position: relative;
     }
 
-    .universe-image {
-        width: 85%;
+    .scene-background {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .world-link {
+        position: absolute;
+        top: 64%;
+        left: 6.3%;
+        width: 15%;
+    }
+
+    .world-link img {
+        display: block;
+        width: 100%;
+        
         aspect-ratio: 1;
         overflow: hidden;
         border-radius: 50%;
@@ -101,73 +59,80 @@ import imagemPergaminho from "../assets/images/pergaminho.png";
             black 100%,
             transparent 100%
         );
+
+        animation: float 4s ease-in-out infinite;
     }
 
-    .universe-image img {
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .world-link:hover {
+       filter:
+            brightness(1.25)
+           drop-shadow(0 0 10px rgba(255, 220, 150, 0.9))
+           drop-shadow(0 0 25px rgba(255, 200, 100, 0.7))
+           drop-shadow(0 0 50px rgba(255, 180, 70, 0.5))
+           drop-shadow(0 0 80px rgba(255, 160, 50, 0.3)); 
+    }
+
+    .map-link {
+        position: absolute;
+        top: 63%;
+        left: 55%;
+        width: 17%;
+        text-decoration: none;
+        color: #5e584e;
+
+    }
+
+    .map-link img {
+        display: block;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-         /* zoom da imagem, sem alterar o círculo */
-        transform: scale(1.15) translateY(3%);
+        
+        aspect-ratio: 1;
+        overflow: hidden;
+        filter: brightness(0.5);
+        transform: rotate(-30deg);
+        transition: filter 0.3s ease;
     }
 
-    .regions {
-        position: relative;
+    .map-link span{
+        position: absolute;
+        
+        top: 40%;
+        left: 105%;
+        width: max-content;
+        transform: translateX(-50%);
+        margin-top: 0.5rem;
+        text-align: center;
+        transition: filter 0.3s ease;
+        font-family: "Tangerine", cursive;
+        font-size: 2rem;
+        transform: rotate(-25deg);
+
     }
 
-    .parchment {
-        background-image: var(--imagemPergaminho);
-        padding: 4rem 3rem;
-        min-height: 300px;
-
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .universe-entry:nth-child(1) {
-        grid-row: 1 / 3;
-    }
-
-    .universe-entry:nth-child(2) {
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-    .universe-entry:nth-child(3) {
-        grid-column: 2;
-        grid-row: 2;
-    }
-
-    .universe-entry h3 {
-        margin-top: 0;
-
-        font-size: 1.5rem;
-    }
-
-    .universe-entry p {
-        color: #c9c2b7;
-        line-height: 1.7;
-    }
-
-     .universe-entry .parchment-text {
-        color: #000;
-        line-height: 1.3;
-        max-width: 60%;
-        margin: 0 auto;
+    .map-link:hover img, .map-link:hover span {
+        filter: brightness(1.2)
+            drop-shadow(0 0 8px rgba(255, 220, 150, 0.5));
+        color: rgba(255, 239, 208, 0.568);
     }
 
     @media (max-width: 800px) {
-        .universe {
-            padding: 5rem 1.5rem;
-        }
-
-        .universe h2 {
-            font-size: 2.5rem;
-        }
-
-        .universe-entries {
-            grid-template-columns: 1fr;
-        }
+    .map-link span {
+        font-size: 1.2rem;
     }
+}
+
 </style>
