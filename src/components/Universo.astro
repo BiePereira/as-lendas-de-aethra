@@ -4,6 +4,7 @@ import mapaPergaminho from "../assets/images/mapa-desenhado.png";
 import imagemBiblioteca from "../assets/images/biblioteca.png";
 ---
 <section id="universo" class="universe">
+
     <div class="universe-scene">
        
         <img
@@ -11,6 +12,11 @@ import imagemBiblioteca from "../assets/images/biblioteca.png";
             alt=""
             class="scene-background"
         />
+
+        <!--aria-hidden diz que não há nada a ser visto aqui para os leitores de tela -->
+        <div class="particles" aria-hidden="true"></div> 
+
+        <h2 class="scene-title">Universo</h2>
         
         <a class="world-link" href="mundo">
             <img src={imagemMundo.src} alt="O mundo">
@@ -23,15 +29,115 @@ import imagemBiblioteca from "../assets/images/biblioteca.png";
     </div>
 </section>
 
+<script>
+    console.log("particles script funcionando");
+    const particles = document.querySelector(".particles");
+    const cores = [
+        "#e8e1d5",
+        "#d8c58a",
+        "#9fc7a5",
+        "#b7c9d6"
+    ];
+
+    const quantidade = window.innerWidth <= 800 ? 125 : 500;
+
+    if (particles) {
+        for(let i = 0; i < quantidade; i++){
+            const particle = document.createElement("span");
+            const size = 1 + Math.random() * 2.5;
+            const left = Math.random() * 100;
+            const top = -7 + Math.random() * 14;
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${left}%`;
+            particle.style.top = `${top}%`;
+            
+            const duration = 5 + Math.random() * 8;
+            particle.style.animationDuration = `${duration}s`;
+
+            const cor = cores[Math.floor(Math.random() * cores.length)]
+            particle.style.background = cor;
+            particle.style.boxShadow = `
+                0 0 4px ${cor},
+                0 0 10px ${cor}
+            `;
+
+            particles.appendChild(particle);
+        }
+    }
+</script>
+
 <style>
     .universe-scene {
         position: relative;
+        background-color: #101c15;
     }
 
     .scene-background {
         display: block;
         width: 100%;
         height: auto;
+
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 10%
+        );
+
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 10%
+        );
+    }
+
+    .particles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none; /*ignora o mouse*/
+        z-index: 1;
+    }
+    
+    /*diz para o Astro que o seletor é global, caso contrário ele não reconhece
+    a classe e elemento html criado por JavaScript*/
+    :global(.particles span) { 
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ed0808;
+        top: 5%;
+        left: 20%;
+
+        animation: drift 6s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+        0%, 100% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(10px, -8px);
+        }
+    }
+
+    .scene-title {
+        position: absolute;
+        top: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+
+
+         font-size: 3.5rem;
+        margin: 0.5rem 0 1rem;
+        color: #e8e1d5;
+
+        text-shadow:
+            0 2px 8px rgba(0, 0, 0, 0.8),
+            0 0 20px rgba(216, 154, 74, 0.4);
+        z-index: 1;
     }
 
     .world-link {
