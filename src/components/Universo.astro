@@ -19,17 +19,17 @@ import imagemLivro from "../assets/images/livro-historia.png";
 
         <h2 class="scene-title">Universo</h2>
         
-        <a class="world-link" href="mundo">
+        <a class="world-link hotspot" href="mundo">
             <img src={imagemMundo.src} alt="O mundo">
         </a>
 
-        <a class="map-link" href="regioes">
+        <a class="map-link hotspot" href="regioes">
             <img src={mapaPergaminho.src} alt="As regiões">
             <span>Regiões de Tarísia</span>
         </a>
 
         <a class="book-link" href="historia" >
-            <img src={imagemLivro.src} alt="A História">
+            <img class="hotspot" src={imagemLivro.src} alt="A História">
             <img src={imagemLivro.src} alt="" class="book-shadow">
         </a>
     </div>
@@ -206,7 +206,7 @@ import imagemLivro from "../assets/images/livro-historia.png";
         left: 55%;
         width: 17%;
         text-decoration: none;
-        color: #5e584e;
+        color: #342f26;
 
     }
 
@@ -216,7 +216,7 @@ import imagemLivro from "../assets/images/livro-historia.png";
         
         aspect-ratio: 1;
         overflow: hidden;
-        filter: brightness(0.5);
+        filter: brightness(0.2);
         transform: rotate(-30deg);
         transition: filter 0.3s ease;
     }
@@ -238,8 +238,8 @@ import imagemLivro from "../assets/images/livro-historia.png";
     }
 
     .map-link:hover img, .map-link:hover span {
-        filter: brightness(1.2)
-            drop-shadow(0 0 8px rgba(255, 220, 150, 0.5));
+        filter: brightness(3.2)
+            drop-shadow(1 1 12px rgba(255, 220, 150, 0.5));
         color: rgba(255, 239, 208, 0.568);
     }
 
@@ -303,9 +303,27 @@ import imagemLivro from "../assets/images/livro-historia.png";
     }
 
     @media (max-width: 800px) {
-    .map-link span {
-        font-size: 1.2rem;
+        .map-link span {
+            font-size: 1.2rem;
+        }
     }
-}
+
+    /* Ativa a iluminação constante apenas em dispositivos com tela de toque */
+    @media (pointer: coarse) {
+        .hotspot {
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+    }
+
+    @keyframes pulseGlow {
+        0%, 100% {
+            opacity: 0.5;
+            filter: drop-shadow(0 0 2px rgba(255, 188, 130, 0.5));
+        }
+        50% {
+            opacity: 1.0;
+            filter: drop-shadow(0 0 10px rgba(255, 191, 117, 0.9));
+        }
+    }
 
 </style>
