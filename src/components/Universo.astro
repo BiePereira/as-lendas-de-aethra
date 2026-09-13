@@ -33,6 +33,16 @@ import imagemLivro from "../assets/images/livro-historia.png";
             <img src={imagemLivro.src} alt="" class="book-shadow">
         </a>
     </div>
+    <div class="mobile-menu-fallback">
+        <span class="fallback-subtitle">Índice de Aethra</span>
+        <nav class="inline-nav">
+            <a href="mundo">🔮 <u>Mundo</u></a>
+            <span class="dot">•</span>
+            <a href="regioes">📜 <u>Regiões</u></a>
+            <span class="dot">•</span>
+            <a href="historia">📗 <u>História</u></a>
+        </nav>
+    </div>
 </section>
 
 <script>
@@ -49,6 +59,7 @@ import imagemLivro from "../assets/images/livro-historia.png";
 
     if (particles) {
         for(let i = 0; i < quantidade; i++){
+            /*Gera a partícula e a coloca em uma posição aleatória*/
             const particle = document.createElement("span");
             const size = 1 + Math.random() * 2.5;
             const left = Math.random() * 100;
@@ -78,6 +89,7 @@ import imagemLivro from "../assets/images/livro-historia.png";
     .universe-scene {
         position: relative;
         background-color: #101c15;
+        overflow-x: clip; /*clipa as partículas que vazarem, evitando alargamento*/
     }
 
     .scene-background {
@@ -112,7 +124,6 @@ import imagemLivro from "../assets/images/livro-historia.png";
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: #ed0808;
         top: 5%;
         left: 20%;
 
@@ -302,9 +313,46 @@ import imagemLivro from "../assets/images/livro-historia.png";
         opacity: 0;
     }
 
+    /* Oculto por padrão no Desktop */
+    .mobile-menu-fallback {
+        display: none;
+    }
+
     @media (max-width: 800px) {
         .map-link span {
             font-size: 1.2rem;
+        }
+        .mobile-menu-fallback {
+            display: block;
+            padding: 1.25rem 1rem;
+            background: #080d0a;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .inline-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .inline-nav a {
+            color: #e8e1d5;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-family: serif;
+            letter-spacing: 0.05em;
+        }
+
+        .inline-nav .dot {
+            color: #3a4d43;
+            font-size: 0.7rem;
+        }
+
+        .inline-nav a:active {
+            color: #d8c58a;
         }
     }
 
