@@ -150,19 +150,21 @@ import imagemBiblioteca from "../assets/images/biblioteca.png";
     .world-link img {
         display: block;
         width: 100%;
-        
+        filter: blur(0.5px);
         aspect-ratio: 1;
         overflow: hidden;
         border-radius: 50%;
+        /*closest-side para não levar em consideração
+        a margem da imagem quadrada (original)*/
         mask-image: radial-gradient(
-            circle,
+            circle closest side,
             black 75%,
             transparent 100%
         );
 
         -webkit-mask-image: radial-gradient(
-            circle,
-            black 100%,
+            circle closest-side,
+            black 75%,
             transparent 100%
         );
 
