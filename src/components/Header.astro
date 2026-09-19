@@ -1,11 +1,16 @@
+---
+import {links} from "../data/navegacao.js";
+import {getPath} from "../utils/paths.js";
+---
+
 <header class="topbar">
     <div class="logo">AS LENDAS DE AETHRA</div>
 
     <nav>
-        <a href="#livro">O Livro</a>
-        <a href="#universo">Universo</a>
-        <a href="#personagens">Personagens</a>
-        <a href="#sobre">Sobre</a>
+        {links.map((link) => (
+                <a href={`${getPath()}${link.destino}`}>{link.texto}</a>
+            )
+        )}
     </nav>
 </header>
 

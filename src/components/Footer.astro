@@ -1,3 +1,8 @@
+---
+import {links} from "../data/navegacao.js";
+import {getPath} from "../utils/paths.js";
+---
+
 <footer class="footer">
     <div class="footer-content">
 
@@ -11,10 +16,10 @@
         </div>
 
         <nav class="footer-nav">
-            <a href="#">O Livro</a>
-            <a href="#">Universo</a>
-            <a href="#">Personagens</a>
-            <a href="#">Sobre</a>
+                {links.map((link) => (
+                    <a href={`${getPath()}${link.destino}`}>{link.texto}</a>
+                )
+            )}
         </nav>
 
     </div>
