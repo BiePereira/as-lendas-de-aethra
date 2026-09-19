@@ -1,4 +1,6 @@
 ---
+import {getPath} from "../utils/paths.js";
+
 import imagemMundo from "../assets/images/tarisia.png";
 import mapaPergaminho from "../assets/images/mapa-desenhado.png";
 import imagemBiblioteca from "../assets/images/biblioteca.png";
@@ -19,16 +21,16 @@ import imagemLivro from "../assets/images/livro-historia.png";
 
         <h2 class="scene-title">Universo</h2>
         
-        <a class="world-link hotspot" href="mundo">
+        <a class="world-link hotspot" href={getPath("mundo")}>
             <img src={imagemMundo.src} alt="O mundo">
         </a>
 
-        <a class="map-link hotspot" href="regioes">
+        <a class="map-link hotspot" href={getPath("regioes")}>
             <img src={mapaPergaminho.src} alt="As regiões">
             <span>Regiões de Tarísia</span>
         </a>
 
-        <a class="book-link" href="historia" >
+        <a class="book-link" href={getPath("historia")} >
             <img class="hotspot" src={imagemLivro.src} alt="A História">
             <img src={imagemLivro.src} alt="" class="book-shadow">
         </a>
@@ -36,11 +38,11 @@ import imagemLivro from "../assets/images/livro-historia.png";
     <div class="mobile-menu-fallback">
         <span class="fallback-subtitle">Índice de Aethra</span>
         <nav class="inline-nav">
-            <a href="mundo">🔮 <u>Mundo</u></a>
+            <a href={getPath("mundo")}>🔮 <u>Mundo</u></a>
             <span class="dot">•</span>
-            <a href="regioes">📜 <u>Regiões</u></a>
+            <a href={getPath("regioes")}>📜 <u>Regiões</u></a>
             <span class="dot">•</span>
-            <a href="historia">📗 <u>História</u></a>
+            <a href={getPath("historia")}>📗 <u>História</u></a>
         </nav>
     </div>
 </section>

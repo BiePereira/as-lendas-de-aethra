@@ -1,3 +1,5 @@
-export function getPath(path) {
-    return `${import.meta.env.BASE_URL}${path}/`;
+export function getPath(path = "") {
+    const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+    const limpo = path.replace(/^\/|\/$/g, "");
+    return limpo ? `${base}/${limpo}/` : `${base}/`;
 }
