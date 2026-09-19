@@ -1,5 +1,6 @@
 ---
 import {getPath} from "../utils/paths.js";
+import {Image} from "astro:assets";
 
 import imagemMundo from "../assets/images/tarisia.png";
 import mapaPergaminho from "../assets/images/mapa-desenhado.png";
@@ -10,8 +11,8 @@ import imagemLivro from "../assets/images/livro-historia.png";
 
     <div class="universe-scene">
        
-        <img
-            src={imagemBiblioteca.src}
+        <Image
+            src={imagemBiblioteca}
             alt=""
             class="scene-background"
         />
@@ -22,17 +23,17 @@ import imagemLivro from "../assets/images/livro-historia.png";
         <h2 class="scene-title">Universo</h2>
         
         <a class="world-link hotspot" href={getPath("mundo")}>
-            <img src={imagemMundo.src} alt="O mundo">
+            <Image src={imagemMundo} alt="O mundo" width={700} />
         </a>
 
         <a class="map-link hotspot" href={getPath("regioes")}>
-            <img src={mapaPergaminho.src} alt="As regiões">
+            <Image src={mapaPergaminho} alt="As regiões" width={800} />
             <span>Regiões de Tarísia</span>
         </a>
 
         <a class="book-link" href={getPath("historia")} >
-            <img class="hotspot" src={imagemLivro.src} alt="A História">
-            <img src={imagemLivro.src} alt="" class="book-shadow">
+            <Image class="hotspot" src={imagemLivro} alt="A História" width={500} />
+            <Image src={imagemLivro} alt="" class="book-shadow" width={500} />
         </a>
     </div>
     <div class="mobile-menu-fallback">
@@ -167,6 +168,7 @@ import imagemLivro from "../assets/images/livro-historia.png";
     }
 
     .world-link img {
+        height: auto;
         display: block;
         width: 100%;
         filter: blur(0.5px);
@@ -226,7 +228,7 @@ import imagemLivro from "../assets/images/livro-historia.png";
     .map-link img {
         display: block;
         width: 100%;
-        
+        height: auto;
         aspect-ratio: 1;
         overflow: hidden;
         filter: brightness(0.2);
@@ -265,7 +267,7 @@ import imagemLivro from "../assets/images/livro-historia.png";
     .book-link > img:first-child {
         display: block;
         width: 100%;
-        
+        height: auto;
         aspect-ratio: 1;
         overflow: hidden;
         filter:

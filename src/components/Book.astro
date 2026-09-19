@@ -1,5 +1,7 @@
 ---
+import {Image} from "astro:assets";
 import imagemCapa from "../assets/images/capa-livro.png";
+
 ---
 
 <section id="livro" class="book">
@@ -22,7 +24,13 @@ import imagemCapa from "../assets/images/capa-livro.png";
     </div>
 
     <div class="book-cover">
-        <img src={imagemCapa.src} alt="A Emissária Mudante" />
+        <!-- widths puxados do CSS, sizes diz a largura que deve aparecer. Deixa o Astro escolher o tamanho do arquivo -->
+		<Image
+			src={imagemCapa}
+			alt="Capa do Livro A Emissária Mudante"
+			widths={[380, 760]} 
+			sizes="380px"
+		/>
     </div>
 </section>
 

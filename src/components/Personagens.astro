@@ -1,4 +1,5 @@
 ---
+import {Image} from "astro:assets";
 import {personagens} from "../data/personagens.js";
 import {getPath} from "../utils/paths.js";
 ---
@@ -20,8 +21,12 @@ import {getPath} from "../utils/paths.js";
     <div class="character-cards">
         {personagens.map((personagem) => (
             <article class="character-card">
-                <div class="character-image">
-                    <img src={personagem.imagemCard} alt={personagem.nome}>
+                <div class="character-image">  
+                    <Image
+                        src={personagem.imagemCard}
+                        alt={personagem.alt}
+                        width = {800}
+                    />
                 </div>
                 <div class="character-info">
                     <h3>{personagem.nome}</h3>
