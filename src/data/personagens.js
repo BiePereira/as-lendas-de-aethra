@@ -5,34 +5,36 @@ import imagemRiel from "../assets/images/riel.png";
 
 export const kaelis = {
     nome: "Kaelis",
-    descricao: "A druidesa de Becanlar.",
+    slug: "kaelis",
+    descricao: "A druidesa de Becanlar",
     imagemCard: imagemKaelis.src,
     imagemHero: imagemKaelisHero.src,
     alt: "Kaelis partindo de Becanlar",
-    link: "personagens/kaelis",
-
     frase: "Pelo menos eu tenho motivo para ter minhas orelhas assim. Pior é você com essas bolotinhas achatadas por aí. Tem certeza que sua mãe não te trouxe de Rook arrastado por um pé?",
     raca: "Meio-elfa",
     origem: "Becanlar",
-    descricao: "A druidesa de Becanlar",
     historia: "",
     idade: "16 anos"
 }
 
 export const garen = {
     nome: "Garen",
-    descricao: "O guardião de Vau dos Gansos.",
+    slug: "garen",
+    descricao: "O guardião de Vau dos Gansos",
     imagemCard: imagemGaren.src,
     alt: "Garen chegando em Vardis",
-    link: "personagens/garen"
+    frase: "Pouco me importa o ouro, que leve tudo. A informação que eu precisava ninguém irá me roubar.",
+    idade: "19 anos"
 }
 
 export const riel = {
     nome: "Riel",
-    descricao: "O ladino de Vardis.",
+    slug: "riel",
+    descricao: "O ladino de Vardis",
     imagemCard: imagemRiel.src,
     alt: "Riel em uma taverna de Vênia",
-    link: "personagens/riel"
+    frase: "Especialista não... Mestre.",
+    idade: "11 anos"
 }
 
 export const personagens = [

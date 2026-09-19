@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import {personagens} from "../../data/personagens.js";
+
+import {getPath} from "../../utils/paths.js";
+
+export function getStaticPaths() {
+    return personagens.map((personagem) => ({
+            params: {slug: personagem.slug},
+            props:{personagem},
+        })
+    );
+}
+
+const {personagem} = Astro.props;
+---
+
+<Layout 
+    titulo={`${personagem.nome} | As Lendas de Aethra`}
+    descricao={personagem.descricao}
+>
+    <main>
+        <header>
+            <h1>{personagem.nome}</h1>
+            <p>{personagem.frase}</p>
+        </header>
+    </main>
+</Layout>
+    

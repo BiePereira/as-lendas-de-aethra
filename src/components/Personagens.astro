@@ -26,7 +26,7 @@ import {getPath} from "../utils/paths.js";
                 <div class="character-info">
                     <h3>{personagem.nome}</h3>
                     <p>{personagem.descricao}</p>
-                    <a href={getPath(personagem.link)}>Conhecer Personagem</a>
+                    <a href={getPath(`personagens/${personagem.slug}`)}>Conhecer Personagem</a>
                 </div>
             </article>
         ))}
