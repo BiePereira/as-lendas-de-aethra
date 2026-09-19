@@ -6,6 +6,8 @@ import imagemMundo from "../assets/images/tarisia.png";
 import mapaPergaminho from "../assets/images/mapa-desenhado.png";
 import imagemBiblioteca from "../assets/images/biblioteca.png";
 import imagemLivro from "../assets/images/livro-historia.png";
+
+import "@fontsource/tangerine/400.css";
 ---
 <section id="universo" class="universe">
 
@@ -49,8 +51,7 @@ import imagemLivro from "../assets/images/livro-historia.png";
 </section>
 
 <script>
-    console.log("particles script funcionando");
-    const particles = document.querySelector(".particles");
+    const particulas = document.querySelector(".particles");
     const cores = [
         "#e8e1d5",
         "#d8c58a",
@@ -60,30 +61,30 @@ import imagemLivro from "../assets/images/livro-historia.png";
 
     const quantidade = window.innerWidth <= 800 ? 125 : 500;
 
-    if (particles) {
+    if (particulas) {
         for(let i = 0; i < quantidade; i++){
             /*Gera a partícula e a coloca em uma posição aleatória*/
-            const particle = document.createElement("span");
+            const particula = document.createElement("span");
             const size = 1 + Math.random() * 2.5;
             const left = Math.random() * 100;
             const top = -7 + Math.random() * 14;
             
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${left}%`;
-            particle.style.top = `${top}%`;
+            particula.style.width = `${size}px`;
+            particula.style.height = `${size}px`;
+            particula.style.left = `${left}%`;
+            particula.style.top = `${top}%`;
             
             const duration = 5 + Math.random() * 8;
-            particle.style.animationDuration = `${duration}s`;
+            particula.style.animationDuration = `${duration}s`;
 
             const cor = cores[Math.floor(Math.random() * cores.length)]
-            particle.style.background = cor;
-            particle.style.boxShadow = `
+            particula.style.background = cor;
+            particula.style.boxShadow = `
                 0 0 4px ${cor},
                 0 0 10px ${cor}
             `;
 
-            particles.appendChild(particle);
+            particulas.appendChild(particula);
         }
     }
 </script>
@@ -206,7 +207,8 @@ import imagemLivro from "../assets/images/livro-historia.png";
         }
     }
 
-    .world-link:hover {
+    .world-link:hover,
+    .world-link:focus-visible {
        filter:
             brightness(1.25)
            drop-shadow(0 0 10px rgba(255, 220, 150, 0.9))
@@ -251,7 +253,10 @@ import imagemLivro from "../assets/images/livro-historia.png";
 
     }
 
-    .map-link:hover img, .map-link:hover span {
+    .map-link:hover img,
+    .map-link:hover span,
+    .map-link:focus-visible img,
+    .map-link:focus-visible span {
         filter: brightness(3.2)
             drop-shadow(2px 2px 12px rgba(255, 220, 150, 0.5));
         color: rgba(255, 239, 208, 0.568);
@@ -272,7 +277,7 @@ import imagemLivro from "../assets/images/livro-historia.png";
         overflow: hidden;
         filter:
             brightness(0.45)
-            drop-shadow(9px 7px 6px rgba(0, 0, 0, 0.7));;
+            drop-shadow(9px 7px 6px rgba(0, 0, 0, 0.7));
         transition: filter 0.3s ease;
     }
 
@@ -303,7 +308,8 @@ import imagemLivro from "../assets/images/livro-historia.png";
 
     }
 
-    .book-link:hover {
+    .book-link:hover,
+    .book-link:focus-visible {
        filter:
             brightness(3.55)
            drop-shadow(0 0 10px rgba(255, 220, 150, 0.9))
@@ -311,8 +317,9 @@ import imagemLivro from "../assets/images/livro-historia.png";
            drop-shadow(0 0 50px rgba(255, 180, 70, 0.5))
            drop-shadow(0 0 80px rgba(255, 160, 50, 0.3)); 
     }
-
-    .book-link:hover .book-shadow {
+        ''      
+    .book-link:hover .book-shadow,
+    .book-link:focus-visible .book-shadow {
         opacity: 0;
     }
 
@@ -356,6 +363,17 @@ import imagemLivro from "../assets/images/livro-historia.png";
 
         .inline-nav a:active {
             color: #d8c58a;
+        }
+    }
+
+    /* Desliga a movimentação se o usuário habilitou a opção no SO dele */
+    @media (prefers-reduced-motion: reduce) {
+        .world-link img {
+            animation: none;
+        }
+
+        :global(.particles span) {
+            animation: none;
         }
     }
 
