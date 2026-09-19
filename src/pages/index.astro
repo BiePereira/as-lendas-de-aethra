@@ -1,4 +1,6 @@
 ---
+import Layout from "../layouts/Layout.astro";
+
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Intro from "../components/Intro.astro";
@@ -6,25 +8,15 @@ import Book from "../components/Book.astro";
 import Universo from "../components/Universo.astro";
 import Personagens from "../components/Personagens.astro";
 import Footer from "../components/Footer.astro";
-
-import "../styles/global.css";
 ---
 
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>Aethra</title>
-    </head>
-
-    <body>
+<Layout titulo="As Lendas de Aethra - A Emissária Mudante">
         
-		<Header />
-        <Hero />
-		<Intro />
-		<Book />
-		<Universo />
-        <Personagens />
-        <Footer />
-    </body>
-</html>
+    <Header />
+    <Hero />
+    <Intro />
+    <Book />
+    <Universo />
+    <Personagens />
+    <Footer />
+</Layout>

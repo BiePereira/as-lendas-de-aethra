@@ -15,3 +15,9 @@ body {
     color: #e8e1d5;
     font-family: Georgia, serif;
 }
+
+.eyebrow {
+    color: #c66a3d;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+}

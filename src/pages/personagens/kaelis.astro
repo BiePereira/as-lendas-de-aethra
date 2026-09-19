@@ -1,20 +1,15 @@
 ---
+import Layout from "../../layouts/Layout.astro";
+
 import {kaelis} from "../../data/personagens.js";
 ---
 
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>Kaelis | As Lendas de Aethra</title>
-    </head>
-
-    <body>
-        <main>
-            <header>
-                <h1>{kaelis.nome}</h1>
-                <p>{kaelis.frase}</p>
-            </header>
-        </main>
-    </body>
-</html>
+<Layout titulo="Kaelis | As Lendas de Aethra">
+    <main>
+        <header>
+            <h1>{kaelis.nome}</h1>
+            <p>{kaelis.frase}</p>
+        </header>
+    </main>
+</Layout>
+    
