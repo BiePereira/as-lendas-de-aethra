@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import {personagens} from "../../data/personagens.js";
 
 import {getPath} from "../../utils/paths.js";
+import {Image} from "astro:assets";
 
 export function getStaticPaths() {
     return personagens.map((personagem) => ({
@@ -14,6 +15,7 @@ export function getStaticPaths() {
 }
 
 const {personagem} = Astro.props;
+const temFicha = personagem.raca || personagem.origem || personagem.idade
 ---
 
 <Layout 
@@ -21,10 +23,254 @@ const {personagem} = Astro.props;
     descricao={personagem.descricao}
 >
     <main>
-        <header>
-            <h1>{personagem.nome}</h1>
-            <p>{personagem.frase}</p>
-        </header>
+        <a class="voltar" href={`${getPath()}#personagens`}>← Voltar</a>
+        <section class="perfil">
+            {personagem.imagemHero && (
+                    <Image
+                        class="perfil-imagem"
+                        src={personagem.imagemHero}
+                        alt={personagem.alt}
+                        loading="eager"
+                        fetchpriority="high"
+                    />
+                )
+            }
+
+            <div class="perfil-texto">
+                <p class="eyebrow">PERSONAGEM</p>
+                <h1>{personagem.nome}</h1>
+                {personagem.nomeCompleto && <p class="nome-completo">{personagem.nomeCompleto}</p>}
+                <p class="descricao">{personagem.descricao}</p>
+                {personagem.frase && <blockquote>{personagem.frase}</blockquote>}
+                {temFicha && (
+                    <dl class="ficha">
+                        {personagem.raca &&
+                            <div>
+                                <dt>Raça</dt>
+                                <dd>{personagem.raca}</dd>
+                            </div>
+                        }
+                        {personagem.origem &&
+                            <div>
+                                <dt>Origem</dt>
+                                <dd>{personagem.origem}</dd>
+                            </div>
+                        }
+                        {personagem.idade &&
+                            <div>
+                                <dt>Idade</dt>
+                                <dd>{personagem.idade}</dd>
+                            </div>
+                        }
+                    </dl>
+                )}
+            </div>
+        </section>
+
+
+        {personagem.historia &&
+            <section class="bloco">
+                <h2>Quem é {personagem.nome}</h2>
+                <p>{personagem.historia}</p>
+            </section>
+        }
+
+        {personagem.trechoLivro &&
+            <section class="bloco trecho">
+                <h2>Do livro</h2>
+                <p>{personagem.trechoLivro}</p>
+            </section>
+        }
+
+        {personagem.rumores?.length > 0 && (
+            <section class="bloco rumores">
+                <h2>O que dizem por aí</h2>
+                <ul>
+                    {personagem.rumores.map((rumor) => (
+                        <li>{rumor}</li>
+                    ))
+                    }
+                </ul>
+            </section>
+
+        )
+        }
     </main>
 </Layout>
+
+<style>
+    .perfil {
+        position: relative;
+        min-height: 70vh;
+        display: flex;
+        align-items: flex-end;
+        padding: 6rem 10% 4rem;
+        overflow: hidden;
+    }
+
+    .perfil-imagem {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+    }
+
+    .perfil::after{
+        content:"";
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(to top,
+                #0b1510 0%,
+                rgba(11, 21, 16, 0.85) 30%,
+                rgba(11, 21, 16, 0) 65%
+            ),
+            linear-gradient(to right,
+                rgba(11, 21,16, 0.75) 0%,
+                rgba(11, 21, 16, 0) 60%
+            );
+    }
+
+    .perfil-texto {
+        position: relative;
+        z-index: 1;
+        max-width: 700px;
+        --sombra-texto: 0 1px 3px rgba(0, 0, 0, 0.9),
+            0 0 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .perfil-texto .eyebrow {
+        color: #e3a75a;
+        text-shadow: var(--sombra-texto);
+    }
+
+    .perfil h1 {
+        margin: 0.5rem 0;
+        font-size: clamp(3rem, 6vw, 6rem);
+        font-weight: 400;
+        line-height: 1;
+        color: #f1ebe0;
+        text-shadow:
+            0 2px 8px rgba(0, 0, 0, 0.8),
+            0 0 20px rgba(216, 154, 74, 0.4);
+    }
+
+    .nome-completo {
+        margin: 0 0 1.5rem;
+        font-size: 1.1rem;
+        letter-spacing: 0.08em;
+        color: #d8c58a;
+    }
+
+    .descricao {
+        color: #c9c2b7;
+        font-size: 1.2rem;
+        text-shadow: var(--sombra-texto);
+    }
+
+    .voltar {
+        position: absolute;
+        top: 2rem;
+        left: 10%;
+        z-index: 1;
+        color: #e8e1d5;
+        text-decoration: none;
+        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+    }
+
+    blockquote {
+        margin: 2rem 0 0;
+        color: #e8e1d5;
+        font-size: 1.4rem;
+        font-style: italic;
+        line-height: 1.6;
+    }
+
+    blockquote::before{
+        content:"“";
+    }
+
+    blockquote::after{
+        content: "”";
+    }
+
+    .ficha {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 2.5rem;
+        margin: 2rem 0 0;
+        padding: 0;
+    }
+
+    .ficha dt {
+        color: #d89a4a;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .ficha dd {
+        margin: 0.2rem 0 0;
+        font-size: 1.2rem;
+    }
+
+    .bloco {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem;
+        color: #c9c2b7;
+        line-height: 1.9;
+    }
+
+    .bloco h2{
+        margin: 0 0 1.5rem;
+        font-size: 2rem;
+        font-weight: 400;
+        color: #e8e1d5;
+    }
+
+    .trecho {
+        text-align: justify;
+    }
+
+    .trecho p::first-letter {
+        float: left;
+        padding: 0.35rem 0.6rem 0 0;
+        font-size: 4rem;
+        line-height: 0.8;
+        color: #d89a4a;
+    }
+
+    .rumores ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .rumores li{
+        padding: 1.5rem 0;
+        border-top: 1px solid #284535;
+        font-style: italic;
+    }
+
+    .rumores li:last-child {
+        border-bottom: 1px solid #284535;
+    }
+
+    @media (max-width: 800px){
+        .perfil {
+            padding: 5rem 1.5rem 3rem;
+        }
+
+        .ficha {
+            padding: 2rem 1.5rem;
+        }
+
+        .voltar {
+            left: 1.5rem;
+        }
+    }
+</style>
     
