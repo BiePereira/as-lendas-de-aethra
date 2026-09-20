@@ -1,11 +1,14 @@
 import imagemKaelis from "../assets/images/kaelis.png";
 import imagemKaelisHero from "../assets/images/kaelis-hero.png";
+import imagemKaelisMoldura from "../assets/images/moldura-outono.png";
 
 import imagemGaren from "../assets/images/garen.jpg";
 import imagemGarenHero from "../assets/images/garen-hero.png";
+import imagemGarenMoldura from "../assets/images/moldura-naval.png";
 
 import imagemRiel from "../assets/images/riel.png";
 import imagemRielHero from "../assets/images/riel-hero.png";
+import imagemRielMoldura from "../assets/images/moldura-cumeada.png";
 
 export const kaelis = {
     nome: "Kaelis",
@@ -14,11 +17,12 @@ export const kaelis = {
     descricao: "A druidesa de Becanlar",
     imagemCard: imagemKaelis,
     imagemHero: imagemKaelisHero,
+    imagemMoldura: imagemKaelisMoldura,
     alt: "Kaelis partindo de Becanlar",
     frase: "Pelo menos eu tenho motivo para ter minhas orelhas assim. Pior é você com essas bolotinhas achatadas por aí. Tem certeza que sua mãe não te trouxe de Rook arrastado por um pé?",
     raca: "Meio-elfa",
     origem: "Becanlar",
-    historia: "Kaelis é uma jovem e habilidosa druidesa transmorfa mestiça criada sob o abrigo dos carvalhos ancestrais de Becanlar. Com o espírito livre e olhar atento para o desenho, a garota de sardas e cabelos cor de fogo luta para dominar sua essência mágica e provar seu valor diante de uma importante tarefa dada à ela por seu povo.",
+    historia: "Kaelis é uma jovem e habilidosa druidesa transmorfa criada sob o abrigo dos carvalhos ancestrais de Becanlar. Com o espírito livre e olhar atento para o desenho, a garota de sardas e cabelos cor de fogo luta para dominar sua essência mágica e provar seu valor diante de uma importante tarefa dada à ela por seu povo.",
     idade: "16 anos",
     trechoLivro: "Sem muitas considerações, agiu de maneira espontânea. Manteve o joelho esquerdo no chão e tocou com a palma da mão na terra úmida. Com a mão esquerda, socou com força seu cajado no solo, firmando-o com afinco. Estava em sua maior conexão com a natureza desde sempre, e sentia a dor dos espíritos antigos da floresta. Então respirou fundo, baixou o rosto, fechou os olhos e, ainda sem um Espírito Guardião que fosse seu patrono, clamou por aquele que era o mais antigo em alto tom de voz: “Mussgon!” Seus olhos verdes vibrantes arregalaram-se. Seus cabelos encharcados passaram a esvoaçar. A garota levantou-se e gritou, mas não era um grito humano, tampouco élfico. Era primitivo, animalesco, feroz.",
     rumores: [
@@ -35,6 +39,7 @@ export const garen = {
     descricao: "O guardião de Vau dos Gansos",
     imagemCard: imagemGaren,
     imagemHero: imagemGarenHero,
+    imagemMoldura: imagemGarenMoldura,
     alt: "Garen chegando em Vardis",
     frase: "Pouco me importa o ouro, que leve tudo. A informação que eu precisava ninguém irá me roubar.",
     origem: "Vau dos Gansos",
@@ -56,6 +61,7 @@ export const riel = {
     descricao: "O ladino de Vardis",
     imagemCard: imagemRiel,
     imagemHero: imagemRielHero,
+    imagemMoldura: imagemRielMoldura,
     alt: "Riel em uma taverna de Vênia",
     frase: "Especialista não... Mestre.",
     origem: "Axxaya / Tanaren",
